@@ -2,7 +2,13 @@
 
 - hosts: all
   become: true
-
+  
+  vars:
+    host: "{{ inventory_hostname }}"
+    user: "{{ ansible_ssh_user }}"
+    passwd: "{{ ansible_ssh_pass }}"
+    sudo: "{{ ansible_sudo_pass }}"
+    
   roles:
 
       - role: "{{ playbook_dir }}"
